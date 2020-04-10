@@ -1,5 +1,5 @@
-# Spring Tips
-https://www.youtube.com/watch?v=P3yI_YhG5pk&t=1337s
+# Spring Tips: Bootiful Kotlin Redux
+https://youtu.be/P3yI_YhG5pk
 
 
 # Kotlin SQL Framework
