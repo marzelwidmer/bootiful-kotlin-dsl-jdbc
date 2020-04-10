@@ -1,3 +1,7 @@
+# Spring Tips
+https://www.youtube.com/watch?v=P3yI_YhG5pk&t=1337s
+
+
 # Kotlin SQL Framework
 https://github.com/JetBrains/Exposed
 https://github.com/JetBrains/Exposed/wiki/Getting-Started#download
@@ -26,3 +30,29 @@ Add Dependencies
 </dependency>
 ```
 
+
+# Bean Definition
+Bean definition with Kotlin DSL.
+ 
+```kotlin
+fun main(args: Array<String>) {
+    runApplication<BootifulKotlinDslApplication>(*args) {
+        val log = LoggerFactory.getLogger("Main")
+
+        val context = beans {
+            bean {
+                ApplicationRunner {
+                    val customerService = ref<CustomerService>()
+                    listOf("John", "Jane", "Jack")
+                        .map { Customer(name = it) }
+                        .forEach { customerService.insert(it) }
+
+                    customerService.all()
+                        .forEach { log.info("--> $it") }
+                }
+            }
+        }
+        addInitializers(context)
+    }
+}
+```
