@@ -13,6 +13,9 @@ import org.springframework.jdbc.core.queryForObject
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.transaction.support.TransactionTemplate
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RestController
 
 @SpringBootApplication
 class BootifulKotlinDslApplication
@@ -48,6 +51,23 @@ fun main(args: Array<String>) {
         addInitializers(context)
     }
 }
+
+@RestController
+class Api(private val customerService: CustomerService, private val personService: PersonService){
+
+    @GetMapping(value = ["/customers"])
+    fun getAllCustomers() = customerService.all()
+
+    @GetMapping(value = ["/customers/{id}"])
+    fun getCustomerById(@PathVariable id : String) = customerService.byId(id.toLong())
+
+    @GetMapping(value = ["/persons"])
+    fun getAllPersons() = personService.all()
+
+    @GetMapping(value = ["/persons/{id}"])
+    fun getPersonById(@PathVariable id : String) = personService.byId(id.toLong())
+}
+
 
 //   _  __     _   _ _         ____  ____  _
 //  | |/ /___ | |_| (_)_ __   |  _ \/ ___|| |
