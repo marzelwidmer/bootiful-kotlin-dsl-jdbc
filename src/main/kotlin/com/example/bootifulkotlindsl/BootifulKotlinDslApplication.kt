@@ -1,18 +1,38 @@
 package com.example.bootifulkotlindsl
 
+import org.slf4j.LoggerFactory
+import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.support.beans
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.queryForObject
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.sql.PreparedStatement
 
 @SpringBootApplication
 class BootifulKotlinDslApplication
 
+
 fun main(args: Array<String>) {
-    runApplication<BootifulKotlinDslApplication>(*args)
+    runApplication<BootifulKotlinDslApplication>(*args) {
+        val log = LoggerFactory.getLogger("Main")
+
+        val context = beans {
+            bean {
+                ApplicationRunner {
+                    val customerService = ref<CustomerService>()
+                    listOf("John", "Jane", "Jack")
+                        .map { Customer(name = it) }
+                        .forEach { customerService.insert(it) }
+
+                    customerService.all()
+                        .forEach { log.info("--> $it") }
+                }
+            }
+        }
+        addInitializers(context)
+    }
 }
 
 @Service

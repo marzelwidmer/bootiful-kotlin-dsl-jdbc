@@ -1,0 +1,28 @@
+# Kotlin SQL Framework
+https://github.com/JetBrains/Exposed
+https://github.com/JetBrains/Exposed/wiki/Getting-Started#download
+
+Add Maven Repository
+```xml
+ <repositories>
+        <repository>
+            <id>jcenter</id>
+            <name>jcenter</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+ </repositories>
+```
+Add Dependencies
+```xml
+<dependency>
+    <groupId>org.jetbrains.exposed</groupId>
+    <artifactId>exposed</artifactId>
+    <version>0.17.7</version>
+</dependency>
+<dependency>
+    <groupId>org.jetbrains.exposed</groupId>
+    <artifactId>spring-transaction</artifactId>
+    <version>0.11.2</version>
+</dependency>
+```
+
