@@ -1,4 +1,4 @@
-# Spring Tips: Bootiful Kotlin Redux
+# Spring Tips: Bootiful Kotlin JDBC Template and Kotlin Expose
 https://youtu.be/P3yI_YhG5pk
 
 
