@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>bootiful-kotlin-dsl-jdbc-template</artifactId>
+    <artifactId>bootiful-kotlin-dsl-jdbc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>bootiful-kotlin-dsl-jdbc-template</name>
+    <name>bootiful-kotlin-dsl-jdbc</name>
     <description>Demo project for Spring Boot Kotlin DSL and JDBC Template</description>
 
     <properties>
