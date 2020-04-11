@@ -1,5 +1,5 @@
 # Spring Tips: Bootiful Kotlin JDBC Template and Kotlin Expose
-https://youtu.be/P3yI_YhG5pk
+https://youtu.be/P3yI_YhG5pk?t=7
 
 
 # Kotlin SQL Framework
